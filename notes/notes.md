@@ -213,6 +213,7 @@ ssh-keygen -t rsa -C "your_comment_here"
 S			# 保存
 Q			# 退出
 R			# 使更改的vimrc生效
+空格 + 回车	 # 取消查找高亮
 
 ctrl + i	# 光标移动到行尾
 ctrl + n	# 光标移动到行首
