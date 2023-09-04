@@ -1,0 +1,28 @@
+{
+    "editor.mouseWheelZoom": true,
+    "editor.minimap.enabled": false,
+    "remote.SSH.remotePlatform": {
+        "aliyun": "linux",
+        "Ubuntu18.04(edk2)": "linux",
+        "10.3.0.168": "linux"
+    },
+    "window.commandCenter": true,
+    "editor.tabSize": 4, 
+    "C_Cpp.intelliSenseEngine": "default",
+
+    // c_cpp_properties
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${default}"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c11",
+            "cppStandard": "gnu++14",
+            "intelliSenseMode": "linux-gcc-x64"
+        }
+    ]
+}
