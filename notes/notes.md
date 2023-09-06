@@ -477,6 +477,14 @@ U	- 将市场文本更改为大写
 :%s/old/new/g		- 替换所有(/g可不加)(加i标志可忽略大小写,如/gi)
 ```
 
+# UEFI
+
+```shell
+build -a X64 -p edk2/MdeModulePkg/MdeModulePkg.dsc -m edk2/MdeModulePkg/Application/HelloWorld/HelloWorld.inf -t GCC5 -b DEBUG
+```
+
+
+
 # Windows常用cmd命令
 
 ## 查看电脑连接过的所有WiFi及密码
