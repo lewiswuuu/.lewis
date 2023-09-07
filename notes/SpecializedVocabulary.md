@@ -11,3 +11,5 @@ OC(Operation Controller):操作控制器
 IDTR(Interrupt Descriptor Table Register):中断描述符表寄存器
 
 MBR(Master Boot Record):主引导记录
+
+PCD(Platform Configuration Database):平台配置数据库
