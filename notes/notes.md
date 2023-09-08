@@ -152,6 +152,8 @@ git push [-f] [--set-upstream] [仓库路径(一般为origin)] [本地分支名(
 git push -u origin master	# 如果当前分支与多个主机存在追踪关系，则可以使用-u选项指定一个默认主机，这样后面就可以不加任何参数使用git push
 
 git push --all origin		# 推送所有分支
+
+git push -f origin local_branch:remote_brance	# 将本地分支(local_branch)推送到远程仓库的对应分支(remote_branch)
 ```
 
 ## git fetch
