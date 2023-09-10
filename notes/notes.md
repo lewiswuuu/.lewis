@@ -1245,6 +1245,40 @@ itheima ALL=(ALL)       NOPASSWD: ALL
 
 语法：`env`
 
+## 设置静态IP
+
+1、`route -n`：查看路由表(查看网关地址)
+
+2、`vim /etc/network/interfaces`
+
+```
+# 文件中添加
+auto ens33
+iface ens33 inet static
+address xxx.xxx.xxx.xxx
+netmask 255.255.255.0
+gateway xxx.xxx.xxx.xxx
+```
+
+3、刷新ip
+
+```shell
+sudo ip addr flush ens33
+sudo systemctl restart networking.service
+```
+
+4、设置DNS `vim etc/systemd/resolved.conf`
+
+```
+# 文件中添加
+[Resolve]
+DNS=xxx.xxx.xxx xxx.xxx.xxx.xxx		# 可以是网关地址(223.5.5.5)
+```
+
+5、重启systemd-resolved服务
+
+`sudo systemctl restart systemd-resolved.service`
+
 ## 每天一个Linux命令
 
 ### awk
