@@ -17,3 +17,5 @@ PCD(Platform Configuration Database):平台配置数据库
 SPD(Serial Presence Detect):串行存在检测
 
 POST(Power On Self-Test):开机自检
+
+NUMA(Non-Uniform Memory Access):非一致性内存访问
