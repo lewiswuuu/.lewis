@@ -283,8 +283,8 @@ A		# 行尾插入
 
 G		# 到最后一行
 
-# visual模式下
-:normal Imy-wallpaper-
+# visual模式下 
+选中多行	:normal Imy-wallpaper-
 :normal A.png
 
 # visual block  选中多行 + I   # 同时插入多行
