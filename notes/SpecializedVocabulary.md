@@ -21,3 +21,8 @@ POST(Power On Self-Test):开机自检
 NUMA(Non-Uniform Memory Access):非一致性内存访问
 
 UEFI PI SPEC:UEFI  Platform Initialization SPEC
+
+FAT(File Allocation Table):文件分配表
+
+NTFS(New Technology File System)
+
