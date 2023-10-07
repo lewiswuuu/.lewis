@@ -26,3 +26,4 @@ FAT(File Allocation Table):文件分配表
 
 NTFS(New Technology File System)
 
+ACPI(Advanced Configuration and Power Interface)：高级配置与电源接口
