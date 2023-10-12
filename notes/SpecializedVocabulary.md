@@ -27,3 +27,19 @@ FAT(File Allocation Table):文件分配表
 NTFS(New Technology File System)
 
 ACPI(Advanced Configuration and Power Interface)：高级配置与电源接口
+
+UCS(Universal Character Set)：通用字符集
+
+UTF(Unicode Transformation Format)：Unicode转换格式
+
+SEL(System Event Log)：系统事件日志
+
+SNMP(Simple Network Management Protocol)：简单网络管理协议
+
+FRU(Field Replaceable Unit)：现场可更换单元
+
+SMI(System Management Interrupt)：系统管理中断
+
+IPC(Instruction Per Clock)：每个时钟周期执行的指令数
+
+PCD(Platform Config Database)：平台配置数据库
