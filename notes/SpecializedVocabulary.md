@@ -43,3 +43,7 @@ SMI(System Management Interrupt)：系统管理中断
 IPC(Instruction Per Clock)：每个时钟周期执行的指令数
 
 PCD(Platform Config Database)：平台配置数据库
+
+HPC(High Performance computing)：高性能计算(超算)
+
+IB(InfiniBand)：一种网络通信协议，一般用于服务器之间的连接
