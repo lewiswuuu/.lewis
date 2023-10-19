@@ -47,3 +47,12 @@ PCD(Platform Config Database)：平台配置数据库
 HPC(High Performance computing)：高性能计算(超算)
 
 IB(InfiniBand)：一种网络通信协议，一般用于服务器之间的连接
+
+ESP(EFI System Partition)：EFI系统分区
+
+BIST(Built-In Self-Test)：内置自检
+
+CAR：Cache As Ram
+
+IDT(Interrupt Descriptor Table)：中断描述符表
+
