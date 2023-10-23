@@ -56,3 +56,4 @@ CAR：Cache As Ram
 
 IDT(Interrupt Descriptor Table)：中断描述符表
 
+UUID(Universally Unique Identifier)：通用唯一识别码
