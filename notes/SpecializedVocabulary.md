@@ -57,3 +57,13 @@ CAR：Cache As Ram
 IDT(Interrupt Descriptor Table)：中断描述符表
 
 UUID(Universally Unique Identifier)：通用唯一识别码
+
+RAS：Reliability、Availability、Serviceability
+
+APIC(Advanced Programmable Interrupt Controller)：高级可编程中断控制器
+
+CCX(Core Complex)：核心复合体
+
+NTB(Non-Transparent Bridging)：非透明桥
+
+SMT(Simultaneous Multi-Threading)：同步多线程。也叫超线程，HT(Hyper-Threading)
