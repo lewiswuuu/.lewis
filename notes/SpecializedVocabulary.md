@@ -67,3 +67,9 @@ CCX(Core Complex)：核心复合体
 NTB(Non-Transparent Bridging)：非透明桥
 
 SMT(Simultaneous Multi-Threading)：同步多线程。也叫超线程，HT(Hyper-Threading)
+
+TPM(Trusted Platform Module)：可信平台模块
+
+ICH(I/0 Controller Hub)/FCh(Fusion Controller Hub)：南桥芯片，Intel的叫ICH输入输出控制集线器，AMD的叫FCH融合控制集线器
+
+SMM(System Management Module)：系统管理模式
