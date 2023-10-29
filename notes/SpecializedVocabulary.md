@@ -73,3 +73,7 @@ TPM(Trusted Platform Module)：可信平台模块
 ICH(I/0 Controller Hub)/FCh(Fusion Controller Hub)：南桥芯片，Intel的叫ICH输入输出控制集线器，AMD的叫FCH融合控制集线器
 
 SMM(System Management Module)：系统管理模式
+
+PSP(Platform Safe Processor)：平台安全处理器
+
+APCB(AMD PSP Configure Block)：AMD PSP配置块
