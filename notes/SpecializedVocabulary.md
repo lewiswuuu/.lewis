@@ -77,3 +77,5 @@ SMM(System Management Module)：系统管理模式
 PSP(Platform Safe Processor)：平台安全处理器
 
 APCB(AMD PSP Configure Block)：AMD PSP配置块
+
+CXL（Computer Express Link）：计算快速连接
