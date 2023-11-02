@@ -79,3 +79,17 @@ PSP(Platform Safe Processor)：平台安全处理器
 APCB(AMD PSP Configure Block)：AMD PSP配置块
 
 CXL（Computer Express Link）：计算快速连接
+
+LLVM(Low Level Virtual Machine):底层虚拟机
+
+PFR(Platform Firmware Resilience)：平台固件恢复(Intel的一项安全技术)
+
+GUID(Globally Unique Identifier)：全局唯一标识符
+
+OCSP(Open Common Server Platform)：开放通用服务器平台
+
+SPR(Sapphire Rapids)：Intel第四代志强处理器
+
+EMR(Emerald Rapids)：Intel第五代志强处理器
+
+GNR(Granite Rapids)：Intel第六代志强处理器
