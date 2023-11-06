@@ -93,3 +93,7 @@ SPR(Sapphire Rapids)：Intel第四代志强处理器
 EMR(Emerald Rapids)：Intel第五代志强处理器
 
 GNR(Granite Rapids)：Intel第六代志强处理器
+
+CRB(Chipset Reference Board)：芯片组参考板
+
+FSP(Firmware Support Package)：固件支持包(Intel为支持其X86平台的芯片而发布的二进制格式文件)
