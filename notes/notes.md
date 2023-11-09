@@ -174,6 +174,19 @@ git pull = git fetch + git merge
 git tag		# 查看标签
 ```
 
+## git stash
+
+```shell
+git stash save "Stashing local changes before merge(暂存信息)"
+// 将本地修改暂存，就可以继续git pull了
+git stash   # 功能同git stash save,只不过没有后面的注释
+
+git stash apply  # 将之前暂存的修改重新应用到工作目录(一般是git pull后)
+git stash pop  # 将之前暂存的修改重新应用到工作目录，和apply的差别在于，apply之后记录里还有，pop之后记录里没有了
+git stash list  # 查看所有暂存的修改
+git stash clear  # 清空所有暂存记录
+```
+
 ## 本地Git和GitHub绑定
 
 在push到GitHub前需先将Git和GitHub绑定:
