@@ -97,3 +97,11 @@ GNR(Granite Rapids)：Intel第六代志强处理器
 CRB(Chipset Reference Board)：芯片组参考板
 
 FSP(Firmware Support Package)：固件支持包(Intel为支持其X86平台的芯片而发布的二进制格式文件)
+
+OCP(Open Compute Project)网卡
+
+TDP(Thermal Design Power)：热设计功耗
+
+PDB(Power Distribution Board)：配电板
+
+BBS(BIOS Boot Specification)：BIOS启动规范
