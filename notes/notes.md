@@ -525,8 +525,6 @@ U	- 将市场文本更改为大写
 build -a X64 -p edk2/MdeModulePkg/MdeModulePkg.dsc -m edk2/MdeModulePkg/Application/HelloWorld/HelloWorld.inf -t GCC5 -b DEBUG
 ```
 
-
-
 # Windows常用cmd命令
 
 ## 查看电脑连接过的所有WiFi及密码
@@ -1348,13 +1346,35 @@ DNS=xxx.xxx.xxx xxx.xxx.xxx.xxx		# 可以是网关地址(223.5.5.5)
 
 ![](https://picgo46.oss-cn-shenzhen.aliyuncs.com/img/202308202257802.png)
 
+# Everything
 
+- 限定文件夹：`路径 文件名`
 
+  > ![](https://picgo46.oss-cn-shenzhen.aliyuncs.com/img/202311181728250.png)
+  >
+  > ![](https://picgo46.oss-cn-shenzhen.aliyuncs.com/img/202311181728321.png)
 
+- 运算符
 
+  - 与   
 
+    > ![](https://picgo46.oss-cn-shenzhen.aliyuncs.com/img/202311181731155.png)
 
+  - 或
 
+    > ![](https://picgo46.oss-cn-shenzhen.aliyuncs.com/img/202311181731756.png)
+
+- 限制格式
+
+  > ![](https://picgo46.oss-cn-shenzhen.aliyuncs.com/img/202311181733682.png)
+
+- 正则表达式
+- 搜索语法
+- 搜索语法
+  - file：只搜索文件			`file:xxx`
+  - foder：只搜索文件夹    `foder:xxx`
+  - size ：限制搜索的大小   `win size:>500mb`只搜索大于500m的文件  `size:100mb-500mb`
+  - **content：搜索文件内容**    `content:abc`搜索内容包含"abc"的文件
 
 
 
