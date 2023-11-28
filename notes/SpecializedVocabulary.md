@@ -105,3 +105,12 @@ TDP(Thermal Design Power)：热设计功耗
 PDB(Power Distribution Board)：配电板
 
 BBS(BIOS Boot Specification)：BIOS启动规范
+
+IFR(Internal Forms Representation)
+
+CSM(Compatibility Support Module)
+
+XIP(eXecute In Place)：原地执行
+
+NMI(Non Maskable Interrupt)：不可屏蔽中断
+
