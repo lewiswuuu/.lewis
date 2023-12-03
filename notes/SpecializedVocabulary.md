@@ -114,3 +114,4 @@ XIP(eXecute In Place)：原地执行
 
 NMI(Non Maskable Interrupt)：不可屏蔽中断
 
+IBV(Independent BIOS Vendor)：独立BIOS供应商
