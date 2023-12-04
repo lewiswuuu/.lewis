@@ -115,3 +115,14 @@ XIP(eXecute In Place)：原地执行
 NMI(Non Maskable Interrupt)：不可屏蔽中断
 
 IBV(Independent BIOS Vendor)：独立BIOS供应商
+
+SMB(Server Message Block)：服务器信息块
+
+SDR(Sensor Data Record)：传感器数据记录
+
+IPMI(Intelligent Platform Management Interface)：智能平台管理接口
+
+IPMB(Intelligent Platform Management Bus)：智能平台管理总线
+
+ICMB(Inter-Chassis Management Bus)：机箱间管理总线
+
