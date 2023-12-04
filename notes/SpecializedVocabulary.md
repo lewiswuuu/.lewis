@@ -126,3 +126,15 @@ IPMB(Intelligent Platform Management Bus)：智能平台管理总线
 
 ICMB(Inter-Chassis Management Bus)：机箱间管理总线
 
+HCI(Host Controller Interface)：主机控制器接口
+
+OHCI(Open Host Controller Interface)：USB1.1的接口标准
+
+UHCI(Universal Host Controller Interface)：Intel主导的USB1.0、1.1的接口标准，与OHCI不兼容
+
+EHCI(Enhanced Host Controller Interface)：Intel主导的USB2.0接口标准
+
+xHCI(eXtensible Host Controller Interface)：USB3.0接口标准
+
+OTG(On The Go)：正在进行中，用于各种不同的设备间的联接
+
