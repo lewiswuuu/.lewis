@@ -207,6 +207,18 @@ git restore "file"	# 删除(撤销)文件在工作区的修改(只能撤销工�
 
 **`git restore --staged "file"`与`git reset --mixed`的区别：**单个文件和所有文件的区别
 
+## git clean
+
+```bash
+-n 或 --dry-run：显示将要执行但不执行实际操作。
+-f 或 --force：强制执行删除操作。
+-d：同时删除未跟踪的目录。
+-q：安静模式，不输出删除的文件列表和警告信息。
+-x：同时删除忽略规则中忽略的文件。
+-e <pattern> 或 --exclude=<pattern>：指定需要排除的文件或目录，可以使用通配符。
+-i 或 --interactive：交互式删除，会询问是否删除每个文件。
+```
+
 ## 本地Git和GitHub绑定
 
 在push到GitHub前需先将Git和GitHub绑定:
