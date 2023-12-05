@@ -138,3 +138,5 @@ xHCI(eXtensible Host Controller Interface)：USB3.0接口标准
 
 OTG(On The Go)：正在进行中，用于各种不同的设备间的联接
 
+HII(Human Interface Infrastructure)
+
