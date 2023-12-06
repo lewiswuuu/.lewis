@@ -40,6 +40,8 @@ FRU(Field Replaceable Unit)：现场可更换单元
 
 SMI(System Management Interrupt)：系统管理中断
 
+SMM(System Management Mode)：系统管理模式
+
 IPC(Instruction Per Clock)：每个时钟周期执行的指令数
 
 PCD(Platform Config Database)：平台配置数据库
@@ -70,7 +72,17 @@ SMT(Simultaneous Multi-Threading)：同步多线程。也叫超线程，HT(Hyper
 
 TPM(Trusted Platform Module)：可信平台模块
 
-ICH(I/0 Controller Hub)/FCh(Fusion Controller Hub)：南桥芯片，Intel的叫ICH输入输出控制集线器，AMD的叫FCH融合控制集线器
+MCH(Memory Controller Hub)/IOH：以前的北桥芯片
+
+ICH(I/O Controller Hub)/FCh(Fusion Controller Hub)：南桥芯片，Intel的叫ICH输入输出控制集线器，AMD的叫FCH融合控制集线器
+
+PCH(Platform Controller Hub)(以前的北桥芯片被集成到了CPU中，南桥芯片也不再叫ICH，就只有一个PCH)
+
+FSB(Front Side Bus)：前端总线，用来连接CPU和内存控制中枢(北桥芯片)
+
+QPI(Quick Path Interconnect)：快速通道互联，是CPU和CPU之间以及CPU和IOH芯片之间的点对点互联总线
+
+DMI(Direct Media Interface)：直接媒体接口，是北桥芯片(MCH)和南桥芯片(ICH)以及CPU和PCH芯片之间的点对点互联总线
 
 SMM(System Management Module)：系统管理模式
 
@@ -139,4 +151,18 @@ xHCI(eXtensible Host Controller Interface)：USB3.0接口标准
 OTG(On The Go)：正在进行中，用于各种不同的设备间的联接
 
 HII(Human Interface Infrastructure)
+
+SCSI(Small Computer System Interface)：微机系统接口
+
+SAS(Serial Attached SCSI)：串行连接SCSI
+
+SATA(Serial ATA)：SATA总线
+
+ATA(Advanced Technology Attachment)
+
+AHCI(Advanced Host Controller Interface)：高级主机控制器接口
+
+PCIe(Peripheral Component Interface Express)：PCIe总线
+
+NVME(Non-Volatile Memory Express)：非易失性存储器标准
 
