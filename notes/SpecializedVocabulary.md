@@ -166,3 +166,5 @@ PCIe(Peripheral Component Interface Express)：PCIe总线
 
 NVME(Non-Volatile Memory Express)：非易失性存储器标准
 
+OVMF(Open Virtual Machine Firmware)
+
