@@ -168,3 +168,4 @@ NVME(Non-Volatile Memory Express)：非易失性存储器标准
 
 OVMF(Open Virtual Machine Firmware)
 
+IFWI(Integrated Firmware Image)
