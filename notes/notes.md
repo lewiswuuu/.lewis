@@ -1388,7 +1388,13 @@ DNS=xxx.xxx.xxx xxx.xxx.xxx.xxx		# 可以是网关地址(223.5.5.5)
   - size ：限制搜索的大小   `win size:>500mb`只搜索大于500m的文件  `size:100mb-500mb`
   - **content：搜索文件内容**    `content:abc`搜索内容包含"abc"的文件
 
+# Makefile
 
+```makefile
+$@  :  目标文件
+$<  :  第一个依赖文件
+$^  :  所有的依赖文件
+```
 
 
 
