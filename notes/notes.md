@@ -5,6 +5,12 @@ apt install tmux
 tmux	# 进入tmux
 ```
 
+## 公共操作
+
+```shell
+prefix + [	# 翻页
+```
+
 ## 默认快捷键
 
 ==ctrl + b为prefix==
