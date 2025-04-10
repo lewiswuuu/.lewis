@@ -1,5 +1,10 @@
 # tmux
 
+```shell
+apt install tmux
+tmux	# 进入tmux
+```
+
 ## 默认快捷键
 
 ==ctrl + b为prefix==
@@ -8,6 +13,10 @@
 
 ```shell
 tmux rename-session -t old_session_name new_session_name	# 修改session名
+prefix + d													# 退出当前tmux窗口，但是会话和里面的进程仍然在后台运行
+tmux detach	
+tmux attach -t <session-name>								# 接入某个已存在的session
+tmux ls														# 查看当前所有的tmux session				
 ```
 
 ### window
@@ -29,6 +38,7 @@ prefix + r		# 修改session名称
 prefix + L		# 列出所有session
 alt + N			# 切换为下一个session
 alt + P			# 切换为上一个session
+prefix + d		# 退出当前tmux窗口，但是会话和里面的进程仍然在后台运行
 ```
 
 ### window
