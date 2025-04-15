@@ -1,0 +1,78 @@
+// C:\Users\youruser\AppData\Roaming\Code\User\settings.json
+{
+    "remote.SSH.remotePlatform": {
+        "Ubuntu18.04(edk2)": "linux",
+        "10.3.0.168": "linux",
+        "10.3.1.16": "windows",
+        "192.168.52.248": "linux",
+        "10.3.0.103": "linux",
+        "10.3.3.157(liurb)": "linux",
+        "Ubuntu20.04(b46)": "linux",
+        "Ubuntu20.04-2(b46)": "linux",
+        "192.168.17.140(b46)": "linux"
+    },
+    "window.commandCenter": true,
+    "editor.tabSize": 4,
+    "C_Cpp.intelliSenseEngine": "default",
+    "files.exclude": {
+        "**/.git": false,
+        "**/.svn": false,
+        "**/.hg": false,
+        "**/CVS": false,
+        "**/.DS_Store": false,
+        "**/Thumbs.db": false
+    },
+    // c_cpp_properties
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${default}"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c11",
+            "cppStandard": "gnu++14",
+            "intelliSenseMode": "linux-gcc-x64"
+        }
+    ],
+    "files.autoSave": "off",
+    "files.autoGuessEncoding": true,
+    "workbench.list.smoothScrolling": true,
+    "editor.smoothScrolling": true,
+    "editor.cursorBlinking": "smooth",
+    "editor.mouseWheelZoom": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnType": true,
+    "editor.formatOnSave": false,
+    "editor.wordWrap": "on",
+    "editor.guides.bracketPairs": true,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.acceptSuggestionOnEnter": "smart",
+    "editor.suggestSelection": "recentlyUsed",
+    "window.dialogStyle": "custom",
+    "debug.showBreakpointsInOverviewRuler": true,
+    "workbench.colorTheme": "One Dark Pro Darker",
+    "workbench.iconTheme": "material-icon-theme",
+    "C_Cpp.clang_format_fallbackStyle": " {     BasedOnStyle: LLVM,     UseTab: Never,     IndentWidth: 2,     TabWidth: 2,     BreakBeforeBraces: Attach,     AllowShortIfStatementsOnASingleLine: false,     IndentCaseLabels: false,     ColumnLimit: 0,     AccessModifierOffset: -4 }",
+    "C_Cpp.clang_format_sortIncludes": false,
+    "CAT.02_AnalyzeMemoryFunction": true,
+    "makefile.configureOnOpen": true,
+    "editor.maxTokenizationLineLength": 2000000,
+    "makefile.configureOnOpen": true,
+    "editor.renderWhitespace": "all",
+    "git.openRepositoryInParentFolders": "always",
+    // "uncrustify-format.configPath.windows": "E:\\UefiCStyle\\UncrustifyCheck\\uncrustify.cfg",
+    // "uncrustify-format.executablePath.windows": "E:\\UefiCStyle\\bin\\uncrustify.exe",
+    // "[c]": {
+    //     "editor.defaultFormatter": "ajkhoury.uncrustify-format"
+    // },
+    "security.workspace.trust.untrustedFiles": "open", // 设置include不自动排序
+    "[go]": {       
+        "editor.formatOnSave": false,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "never"
+        }
+    },              //formatOnSave： 保存文件时，是否执行格式化  codeActiosnOnSave：保存文件时，是否执行某些操作  organizeImports: 不再改动import（）里面的包
+}

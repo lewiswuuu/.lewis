@@ -1,0 +1,12 @@
+// 将键绑定放在此文件中以覆盖默认值auto[]
+// C:\Users\youruser\AppData\Roaming\Code\User\keybindings.json
+[
+    {
+        "key": "ctrl+f7",
+        "command": "highlightwords.addHighlight"
+    },
+    {
+        "key": "alt+f7",
+        "command": "highlightwords.removeHighlight"
+    }
+]
