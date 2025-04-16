@@ -11,11 +11,11 @@
         "Ubuntu20.04-2(b46)": "linux",
         "192.168.17.140(b46)": "linux"
     },
-    "window.commandCenter": true,
-    "editor.tabSize": 4,
-    "C_Cpp.intelliSenseEngine": "default",
+    "window.commandCenter": true,    // 在标题栏显示命令中心（快速访问常用操作）
+    "editor.tabSize": 4,    // 设置制表符（Tab）宽度为 4 个空格
+    "C_Cpp.intelliSenseEngine": "default",  // 使用默认的 IntelliSense 引擎（微软提供），提供代码补全、参数提示等
     "files.exclude": {
-        "**/.git": false,
+        "**/.git": false,    // 不隐藏 .git 目录（若为 true 则隐藏）
         "**/.svn": false,
         "**/.hg": false,
         "**/CVS": false,
@@ -31,48 +31,47 @@
                 "${default}"
             ],
             "defines": [],
-            "compilerPath": "/usr/bin/gcc",
-            "cStandard": "c11",
-            "cppStandard": "gnu++14",
+            "compilerPath": "/usr/bin/gcc",    // 指定 GCC 编译器路径
+            "cStandard": "c11",    // 使用 C11 标准
+            "cppStandard": "gnu++14",    // 使用 GNU C++14 标准
             "intelliSenseMode": "linux-gcc-x64"
         }
     ],
-    "files.autoSave": "off",
-    "files.autoGuessEncoding": true,
-    "workbench.list.smoothScrolling": true,
-    "editor.smoothScrolling": true,
-    "editor.cursorBlinking": "smooth",
-    "editor.mouseWheelZoom": true,
-    "editor.formatOnPaste": true,
-    "editor.formatOnType": true,
-    "editor.formatOnSave": false,
-    "editor.wordWrap": "on",
-    "editor.guides.bracketPairs": true,
-    "editor.suggest.snippetsPreventQuickSuggestions": false,
-    "editor.acceptSuggestionOnEnter": "smart",
-    "editor.suggestSelection": "recentlyUsed",
-    "window.dialogStyle": "custom",
-    "debug.showBreakpointsInOverviewRuler": true,
-    "workbench.colorTheme": "One Dark Pro Darker",
-    "workbench.iconTheme": "material-icon-theme",
-    "C_Cpp.clang_format_fallbackStyle": " {     BasedOnStyle: LLVM,     UseTab: Never,     IndentWidth: 2,     TabWidth: 2,     BreakBeforeBraces: Attach,     AllowShortIfStatementsOnASingleLine: false,     IndentCaseLabels: false,     ColumnLimit: 0,     AccessModifierOffset: -4 }",
-    "C_Cpp.clang_format_sortIncludes": false,
+    "files.autoSave": "off",    // 关闭文件自动保存
+    "files.autoGuessEncoding": true,    // 自动猜测文件编码（避免乱码）
+    "workbench.list.smoothScrolling": true, // 启用列表平滑滚动效果（如文件资源管理器、命令面板、下拉菜单等）
+    "editor.smoothScrolling": true,    // 启用编辑器平滑滚动效果
+    "editor.cursorBlinking": "smooth",  // 定义文本光标（即输入位置的竖线）的闪烁动画风格."smooth" 表示启用平滑的淡入淡出闪烁效果.可选值：smooth、blink、phase、expand、solid
+    "editor.mouseWheelZoom": true,    // 启用鼠标滚轮缩放
+    "editor.formatOnPaste": true,    // 粘贴代码时自动格式化
+    "editor.formatOnType": true,    // 输入时自动格式化（如输入 ; 或 } 后触发）
+    "editor.formatOnSave": false,   // 关闭保存文件时自动格式化代码（需手动触发格式化）
+    "editor.wordWrap": "on",    // 自动换行，长文本在窗口边缘折行显示。可选值："off"（不换行）、"on"（窗口宽度换行）、"wordWrapColumn"（自定义列数）
+    "editor.guides.bracketPairs": true,    // 在代码编辑器中显示括号对的垂直辅助线（需要 VS Code 1.60+ 版本）
+    "editor.suggest.snippetsPreventQuickSuggestions": false,    // 控制代码片段(snippets)是否阻止快速建议弹出.false(默认)：输入代码片段前缀时仍会显示其他建议
+    "editor.acceptSuggestionOnEnter": "smart",    // 控制按Enter键时如何接受代码建议."on"：总是接受建议."off"：从不接受建议."smart"：仅在建议改变了文本时接受
+    "editor.suggestSelection": "recentlyUsed",    // 控制建议列表中默认选中哪条建议."first"：总是选中第一个建议."recentlyUsed"：优先选中最近使用过的建议."recentlyUsedByPrefix"：根据当前输入前缀匹配最近使用记录
+    "window.dialogStyle": "custom",    // 设置VS Code对话框的样式风格."custom"：使用VS Code自定义的现代化对话框（默认）."native"：使用操作系统原生对话框
+    "debug.showBreakpointsInOverviewRuler": true,    // 在编辑器滚动条区域显示断点标记
+    "workbench.colorTheme": "One Dark Pro Darker",    // 设置主题为 “One Dark Pro Darker”（深色主题）
+    "workbench.iconTheme": "material-icon-theme",    // 使用 Material Design 风格的文件图标主题
+    "C_Cpp.clang_format_fallbackStyle": " {     BasedOnStyle: LLVM,     UseTab: Never,     IndentWidth: 2,     TabWidth: 2,     BreakBeforeBraces: Attach,     AllowShortIfStatementsOnASingleLine: false,     IndentCaseLabels: false,     ColumnLimit: 0,     AccessModifierOffset: -4 }",    // 定义 Clang-Format 的代码风格规则（当没有 .clang-format 文件时生效）
+    "C_Cpp.clang_format_sortIncludes": false,   // 禁用 Clang-Format 自动排序 #include 头文件
     "CAT.02_AnalyzeMemoryFunction": true,
-    "makefile.configureOnOpen": true,
-    "editor.maxTokenizationLineLength": 2000000,
-    "makefile.configureOnOpen": true,
-    "editor.renderWhitespace": "all",
-    "git.openRepositoryInParentFolders": "always",
+    "makefile.configureOnOpen": true,    // 打开 Makefile 项目时自动配置（需安装 Makefile 工具扩展）
+    "editor.maxTokenizationLineLength": 2000000,    // 允许 VS Code 解析超长行（默认值为 20000），避免大文件语法高亮失效
+    "editor.renderWhitespace": "all",   // 显示所有空白字符（如空格、制表符、换行符）。可选值："none"（不显示）、"boundary"（仅显示单词间空格）、"all"（全部显示）
+    "git.openRepositoryInParentFolders": "always",    // 自动在父目录中查找 Git 仓库（方便多仓库项目）
     // "uncrustify-format.configPath.windows": "E:\\UefiCStyle\\UncrustifyCheck\\uncrustify.cfg",
     // "uncrustify-format.executablePath.windows": "E:\\UefiCStyle\\bin\\uncrustify.exe",
     // "[c]": {
     //     "editor.defaultFormatter": "ajkhoury.uncrustify-format"
     // },
-    "security.workspace.trust.untrustedFiles": "open", // 设置include不自动排序
+    "security.workspace.trust.untrustedFiles": "open", // 在不受信任的工作区中，直接打开文件（不提示警告）。可选值："prompt"（询问用户）、"newWindow"（在新窗口打开）
     "[go]": {       
-        "editor.formatOnSave": false,
+        "editor.formatOnSave": false,    // golang 关闭保存时自动格式化
         "editor.codeActionsOnSave": {
-            "source.organizeImports": "never"
+            "source.organizeImports": "never"    // 禁止自动整理 import 语句
         }
     },              //formatOnSave： 保存文件时，是否执行格式化  codeActiosnOnSave：保存文件时，是否执行某些操作  organizeImports: 不再改动import（）里面的包
 }
