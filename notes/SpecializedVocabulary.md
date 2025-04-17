@@ -171,3 +171,11 @@ OVMF(Open Virtual Machine Firmware)
 IFWI(Integrated Firmware Image)
 
 TPL(Task Priority Level)
+
+DSDT(Differentiated System Description Table)：系统的主要硬件描述表(必须存在)
+
+SSDT(Secondary System Description Table)：补充硬件描述(可动态加载)
+
+FADT(Fixed ACPI Description Table)：描述固定硬件特性(如电源管理寄存器)
+
+MADT(Multiple APIC Description Table)：描述中断控制器(如APIC)
