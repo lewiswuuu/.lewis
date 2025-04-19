@@ -262,14 +262,337 @@ git config --global --unset https.proxy
 
 [方法二](https://blog.csdn.net/m0_63230155/article/details/132070860)
 
+## ssh: connect to host github.com port 22: Connection refused
+
+**问题现象**
+
+本文以Windows系统为例进行说明，在个人电脑上使用Git命令来操作GitHub上的项目，本来都很正常，突然某一天开始，会提示如下错误ssh: connect to host github.com port 22: Connection refused。
+
+> $ git pull ssh: connect to host github.com port 22: Connection refused
+> fatal: Could not read from remote repository. ​ Please make sure you
+> have the correct access rights and the repository exists.
+
+**排查思路**
+
+ssh: connect to host github.com port 22: Connection refused这个错误提示的是连接github.com的22端口被拒绝了。
+
+原本以为http://github.com挂了，但是浏览器访问http://github.com一切正常
+
+网上搜索这个报错，发现很多人遇到这个问题，大概有2个原因和对应解决方案：
+
+**1、使用GitHub的443端口**
+
+22端口可能被防火墙屏蔽了，可以尝试连接GitHub的443端口。
+打开git bash
+
+![](https://picgo46.oss-cn-shenzhen.aliyuncs.com/img/202504191453682.png)
+
+`vim ~/.ssh/config`
+
+```bash
+# Add section below to it
+Host github.com
+  Hostname ssh.github.com
+  Port 443
+```
+
+` ssh -T git@github.com`
+
+Hi xxxxx! You’ve successfully authenticated, but GitHub does not
+provide shell access.
+这个解决方案的思路是：给~/.ssh/config文件里添加如下内容，这样ssh连接GitHub的时候就会使用443端口。
+
+Host github.com
+Hostname ssh.github.com
+Port 443
+如果~/.ssh目录下没有config文件，新建一个即可。
+
+修改完~/.ssh/config文件后，使用ssh -T git@github.com来测试和GitHub的网络通信是否正常，如果提示Hi xxxxx! You’ve successfully authenticated, but GitHub does not provide shell access. 就表示一切正常了。
+
+但是，这个方案在我这里行不通，修改后还是提示ssh: connect to host github.com port 443: Connection refused。
+
+**这个方案有效的前提是**：执行命令ssh -T -p 443 git@ssh.github.com后不再提示connection refused，所以要尝试这个方案的小伙伴先执行这条命令测试下。
+
+**2、使用https协议，不要使用ssh协议**
+
+在你的GitHub的本地repo目录，执行如下命令：
+
+```bash
+git config --local -e
+```
+
+然后把里面的url配置项从git格式修改为https格式
+
+```bash
+url = git@github.com:username/repo.git
+url = https://github.com/username/repo.git
+```
+
+这个其实修改的是repo根目录下的./git/config文件。
+
+**但是这个方法在我这里同样不生效。**
+
+**解决方案**
+网上的招都没用，只能自力更生了。既然和GitHub建立ssh连接的时候提示connection refused，那我们就详细看看建立ssh连接的过程中发生了什么，可以使用ssh -v命令，-v表示verbose，会打出详细日志。
+
+```bash
+$ ssh -Tv git@github.com
+OpenSSH_9.0p1, OpenSSL 1.1.1o  3 May 2022
+debug1: Reading configuration data /c/Users/1/.ssh/config
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: Connecting to github.com [::1] port 22.
+debug1: connect to address ::1 port 22: Connection refused
+debug1: Connecting to github.com [127.0.0.1] port 22.
+debug1: connect to address 127.0.0.1 port 22: Connection refused
+ssh: connect to host github.com port 22: Connection refused
+```
+
+从上面的信息马上就发现了诡异的地方，连接http://github.com的地址居然是::1和127.0.0.1。前者是IPV6的localhost地址，后者是IPV4的localhost地址
+
+到这里问题就很明确了，是DNS解析出问题了，导致http://github.com域名被解析成了localhost的ip地址，就自然连不上GitHub了
+
+**Windows下执行ipconfig /flushdns 清楚DNS缓存后也没用，最后修改hosts文件，增加一条github.com的域名映射搞定。**
+
+```bash
+140.82.113.4 github.com
+```
+
+![](https://picgo46.oss-cn-shenzhen.aliyuncs.com/img/202504191449956.png)
+
+查找http://github.com的ip地址可以使用https://www.ipaddress.com/来查询，也可以使用nslookup命令
+
+```bash
+nslookup github.com 8.8.8.8
+```
+
+nslookup是域名解析工具，8.8.8.8是Google的DNS服务器地址。直接使用`nslookup github.com`
+
+就会使用本机已经设置好的DNS服务器进行域名解析，ipconfig /all可以查看本机DNS服务器地址。
+
+这个问题其实就是DNS解析被污染了，有2种可能：
+
+- DNS解析被运营商劫持了
+
+- 使用了科学上网工具
+
+  按照我上面写的解决方案操作即可解决。
+
+## GitHub clone 的仓库同步开源仓库commit
+
+1. 添加远程上游仓库
+
+   在本地仓库中，添加开源仓库作为 `upstream` 远程源：
+
+   ```bash
+   git remote add upstream https://github.com/开源仓库所有者/开源仓库.git
+   ```
+
+   - `upstream` 是远程仓库的别名（可自定义，通常用 `upstream` 表示上游仓库）
+   - 你的原始仓库（你自己的 GitHub 仓库）默认是 `origin`
+
+   验证是否成功：
+
+   ```bash
+   git remote -v
+   ```
+
+   输出应类似：
+
+   ```bash
+   origin  https://github.com/你的用户名/你的仓库.git (fetch)
+   origin  https://github.com/你的用户名/你的仓库.git (push)
+   upstream  https://github.com/开源仓库所有者/开源仓库.git (fetch)
+   upstream  https://github.com/开源仓库所有者/开源仓库.git (push)
+   ```
+
+2. 拉取上游仓库的最新更改
+
+   方法1：直接拉取并合并
+
+   ```bash
+   git checkout master          # 切换到你的 master 分支
+   git fetch upstream           # 获取上游仓库的所有更新
+   git merge upstream/main      # 合并上游的 main 分支到你的 master
+   ```
+
+   - 如果上游仓库的分支名是 `master` 而不是 `main`，请替换为 `upstream/master`。
+
+   方法2：变基（Rebase）保持干净历史
+
+   ```bash
+   git checkout master
+   git fetch upstream
+   git rebase upstream/main     # 变基到上游的最新提交
+   ```
+
+   - `rebase` 会重写你的本地提交历史，适用于个人项目（不推荐在多人协作分支上使用）。
+
+3. 推送更新到你的GitHub仓库
+
+   ```bash
+   git push origin master
+   ```
+
+   - 这样你的 GitHub 仓库的 `master` 分支就会和上游仓库的 `main` 分支同步。
+
+4. 设置默认追踪上游分支（可选）
+
+   如果你希望每次 `git pull` 都自动从上游拉取更新，可以设置：
+
+   ```bash
+   git branch -u upstream/main master
+   ```
+
+   - `-u`（`--set-upstream-to`）表示让 `master` 追踪 `upstream/main`。
+
+5. 未来同步更新的方法
+
+   手动同步：
+
+   ```bash
+   git checkout master
+   git fetch upstream
+   git merge upstream/main      # 或 `git rebase upstream/main`
+   git push origin master
+   ```
+
+   自动同步：
+
+   可以在 `.github/workflows/sync.yml` 创建 GitHub Actions 自动同步：
+
+   ```bash
+   name: Sync with Upstream
+   on:
+     schedule:
+       - cron: '0 0 * * *'  # 每天同步一次
+     workflow_dispatch:     # 支持手动触发
+   
+   jobs:
+     sync:
+       runs-on: ubuntu-latest
+       steps:
+         - uses: actions/checkout@v3
+         - name: Sync Fork
+           run: |
+             git config --global user.name "GitHub Actions"
+             git config --global user.email "actions@github.com"
+             git remote add upstream https://github.com/开源仓库所有者/开源仓库.git
+             git fetch upstream
+             git checkout master
+             git merge upstream/main
+             git push origin master
+   ```
+
 # ssh
+
+## 选项
+
+**基础连接选项**
+
+| 选项            | 作用                                     | 示例                             |
+| :-------------- | :--------------------------------------- | :------------------------------- |
+| `-p <端口>`     | 指定 SSH 端口（默认 22）                 | `ssh -p 2222 user@host`          |
+| `-i <私钥路径>` | 指定认证私钥文件                         | `ssh -i ~/.ssh/id_rsa user@host` |
+| `-l <用户名>`   | 指定登录用户名                           | `ssh -l user host`               |
+| `-v`            | 显示详细调试信息（可叠加 `-vv`、`-vvv`） | `ssh -v user@host`               |
+
+**端口转发与代理**
+
+| 选项                              | 作用                        | 示例                                   |
+| :-------------------------------- | :-------------------------- | :------------------------------------- |
+| `-L <本地端口:目标主机:目标端口>` | 本地端口转发                | `ssh -L 8080:localhost:80 user@host`   |
+| `-R <远程端口:本地主机:本地端口>` | 远程端口转发                | `ssh -R 2222:localhost:22 user@host`   |
+| `-D <本地端口>`                   | 动态 SOCKS 代理             | `ssh -D 1080 user@host`                |
+| `-J <跳板机>`                     | 通过跳板机连接（ProxyJump） | `ssh -J user@jumphost user@targethost` |
+
+**会话控制**
+
+| 选项 | 作用                           | 示例                                     |
+| :--- | :----------------------------- | :--------------------------------------- |
+| `-T` | 禁用伪终端分配（非交互式操作） | `ssh -T git@github.com`                  |
+| `-t` | 强制分配伪终端（交互式需求）   | `ssh -t user@host "sudo cmd"`            |
+| `-N` | 不执行远程命令（仅端口转发）   | `ssh -N -L 8080:localhost:80 user@host`  |
+| `-f` | 后台运行 SSH（结合 `-N` 使用） | `ssh -fN -L 8080:localhost:80 user@host` |
+
+**安全与认证**
+
+| 选项        | 作用                     | 示例                                          |
+| :---------- | :----------------------- | :-------------------------------------------- |
+| `-o <配置>` | 自定义配置参数           | `ssh -o "StrictHostKeyChecking=no" user@host` |
+| `-A`        | 启用认证代理转发         | `ssh -A user@bastion`                         |
+| `-C`        | 启用数据压缩（节省带宽） | `ssh -C user@host`                            |
+
+**文件传输辅助**
+
+| 选项            | 作用                       | 示例                                   |
+| :-------------- | :------------------------- | :------------------------------------- |
+| `-F <配置文件>` | 指定配置文件路径           | `ssh -F ~/custom_ssh_config user@host` |
+| `-q`            | 安静模式（抑制非错误信息） | `ssh -q user@host`                     |
+
+**图形界面支持**
+
+| 选项 | 作用                          | 示例               |
+| :--- | :---------------------------- | :----------------- |
+| `-X` | 启用基础 X11 转发             | `ssh -X user@host` |
+| `-Y` | 启用可信 X11 转发（性能更好） | `ssh -Y user@host` |
+
+**典型使用场景**
+
+**1. 通过跳板机连接内网主机**
+
+```bash
+ssh -J user@jumphost user@internal-host
+```
+
+**2. 本地调试远程 Web 服务**
+
+```bash
+ssh -L 8080:localhost:80 user@webserver
+# 本地浏览器访问 http://localhost:8080
+```
+
+**3. 安全执行远程命令**
+
+```bash
+ssh -t user@host "sudo systemctl restart nginx"
+```
+
+**4. 快速验证密钥配置**
+
+```bash
+ssh -T git@github.com  # GitHub 密钥测试
+```
+
+**SSH 配置文件示例**
+
+编辑 `~/.ssh/config` 简化常用连接：
+
+```bash
+Host myserver
+  HostName 192.168.1.100
+  User admin
+  Port 2222
+  IdentityFile ~/.ssh/myserver_key
+
+Host *.internal
+  ProxyJump jumphost
+  User dev
+```
+
+**注意事项**
+
+- **安全警告**：禁用 `StrictHostKeyChecking` 或使用 `-o` 参数可能降低安全性，需谨慎使用。
+- **资源占用**：长时间端口转发时，建议结合 `-fN` 保持后台运行。
+- **兼容性**：部分选项（如 `-J`）需要 OpenSSH 7.3+ 版本支持。
+
+
 
 ## ssh-keygen
 
 ```
 ssh-keygen -t rsa -C "your_comment_here"
 
--C:指定自定义备注信息
+-C:指定自定义备注信息(可选)
 -t选项:rsa(默认) dsa(已被认为不安全,不推荐) ecdsa ed25519
 ```
 
