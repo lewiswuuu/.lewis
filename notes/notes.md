@@ -182,6 +182,7 @@ git fetch [远程仓库名] [分支名]		# 从远程仓库拉取更新到本地�
 
 ```shell
 git pull = git fetch + git merge
+git pull origin master:feature --rebase    # 把远程库master分支给rebase到本地feature分支
 ```
 
 ## git tag
@@ -482,6 +483,18 @@ nslookup是域名解析工具，8.8.8.8是Google的DNS服务器地址。直接�
              git merge upstream/main
              git push origin master
    ```
+
+## 配置git credential让git记录使用的用户名和密码
+
+```bash
+$ git config --global credential.helper store
+$ git clone https://xxx.com.cn/v1/repos/xxx
+# 手动输入用户名、密码，仅需输入一次
+```
+
+检查`~/.git-credentials`，确保文件的权限仅限自己访问，并且里面包含了用户名、密码.
+
+之后，fetch/push等操作git会自动使用存下来的用户名、密码，不再需要手动输入。
 
 # ssh
 
