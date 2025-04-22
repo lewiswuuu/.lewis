@@ -609,7 +609,50 @@ ssh-keygen -t rsa -C "your_comment_here"
 -t选项:rsa(默认) dsa(已被认为不安全,不推荐) ecdsa ed25519
 ```
 
+# QEMU
 
+**参数：**
+
+```bash
+-machine(M) virt :指定目标硬件平台（RISC-V常用virt）
+-m 2G:指定虚拟机内存大小
+-smp 2 :设置虚拟CPU核心数
+-nographic :禁用图形界面，完全通过命令行交互
+-kernel:指linux kernel 的Image
+-initrd:指初始化内存文件系统（如由u-root生成的cpio文件）
+-append:传递给内核的参数
+
+-bios build/coreboot.rom：指定 coreboot 镜像。(作为BIOS加载)
+-drive if=pflash,file=./build/coreboot.rom,format=raw：指定 coreboot 镜像。(作为Flash设备加载)
+
+-device ipmi-bmc-sim：模拟一个虚拟的 BMC 设备
+-device isa-ipmi-kcs：模拟 ISA 接口的 IPMI KCS 控制器
+-append "ipmi_si.trydefaults=1"：让内核自动探测 IPMI 接口
+## QEMU 模拟 IPMI 硬件
+qemu-system-x86_64 \
+    -kernel bzImage \
+    -initrd initramfs.cpio.gz \
+    -device ipmi-bmc-sim,id=bmc0 \
+    -device isa-ipmi-kcs,bmc=bmc0 \
+    -append "ipmi_si.trydefaults=1" \
+    -nographic
+```
+
+**图形模式退出（没有 `-nographic` 参数）**
+
+```
+按 Ctrl+Alt 释放鼠标/键盘焦点后：
+- 点击窗口关闭按钮
+或
+- 在 QEMU 窗口中按 Ctrl+Alt+2 进入 QEMU 控制台，输入 `quit` 回车
+```
+
+**无图形模式退出（使用 `-nographic` 参数时）**
+
+```
+按 Ctrl+A 然后按 X
+（先按住 Ctrl，按 A，松开所有键，再按 X）
+```
 
 # vim常用命令
 
